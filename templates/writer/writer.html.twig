@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    {{ parent() }}
+    <main class="container">
+        <h1>Un écrivain</h1>
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Pays</th>
+                    <th scope="col">Action</th>       
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                    <td>{{writer.name}}</td>
+                    <td>{{writer.firsname}}</td>
+                    <td>{{writer.countrie}}</td>
+                    <td><a href="{{path ( 'update_writer',{'id':writer.id} ) }}"><i class="bi bi-pencil-fill"></i></a>
+                    <a href="{{path ( 'delete_writer',{'id':writer.id} ) }}"><i class="bi bi-trash-fill"></i></a></td>
+   
+                </tr>
+                     
+            </tbody>
+        </table>
+    </main>
+    {% block javascripts %}{% endblock %}      
+
+{% endblock %}

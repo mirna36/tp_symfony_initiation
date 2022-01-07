@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+	{{ parent() }}
+	<main class="container">
+		<h1>Liste livres
+			<a href="{{path ( 'create_book') }}">
+				<button type="button" class="btn btn-outline-secondary">Créer un livre</button>
+			</a>
+		</h1>
+		<table class="table">
+			<thead class="table-dark">
+				<tr>
+					<th scope="col">Auteur</th>
+					<th scope="col">Titre</th>
+					<th scope="col">Date</th>
+					<th scope="col">Description</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					{% for book in book %}
+						<td>{{book.writer.id}}</td>
+						<td>{{book.title}}</td>
+						<td>{{book.year}}</td>
+						<td>{{book.description}}</td>
+						<td>
+							<a href="{{path ( 'update_book',{'id':book.id} ) }}">
+								<i class="bi bi-pencil-fill"></i>
+							</a>
+							<a href="{{path ( 'delete_book',{'id':book.id} ) }}">
+								<i class="bi bi-trash-fill"></i>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</main>
+	{% block javascripts %}{% endblock %}
+
+{% endblock %}

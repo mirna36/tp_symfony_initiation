@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    {{ parent() }}      
+    <main class="container">
+        <h1>Créer ou Modifier un écrivain</h1>
+        <form>
+            {{ form_start(writerForm) }}
+
+            <div class="mb-3">
+                {{ form_label(writerForm.name, 'Nom de l\'écrivain : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+                {{ form_widget(writerForm.name, {'attr' : {'placeholder' : 'Nom de l\'écrivain', 'class' : 'form-control'} } ) }}
+            </div>
+            <div class="mb-3">
+                {{ form_label(writerForm.firsname, 'Prenom de l\'écrivain : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+                {{ form_widget(writerForm.firsname, {'attr' : {'placeholder' : 'Prenom de l\'écrivain', 'class' : 'form-control'} } ) }}
+            </div>
+            <div class="mb-3">
+                {{ form_label(writerForm.countrie, 'Pays de l\'écrivain : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+                {{ form_widget(writerForm.countrie, {'attr' : {'placeholder' : 'Pays de l\'écrivain ', 'class' : 'form-control'} } ) }}
+            </div>
+            <div class="mb-3">
+                {{ form_widget(writerForm.enregistrer, { 'attr' : {'class' : 'btn btn-outline-secondary'} } ) }}
+            </div>
+            
+            {{ form_end(writerForm) }}
+                        
+        </form> 
+    </main        
+ {% block javascripts %}{% endblock %}      
+
+{% endblock %}

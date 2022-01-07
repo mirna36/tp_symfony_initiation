@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    {{ parent() }}
+    <main class="container">
+        <h1>Créer ou Modifier un livre</h1>
+        <form>
+            
+            {{ form_start(bookForm) }}
+            <div class="mb-3">
+            {{ form_label(bookForm.title, 'Titre du livre : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+            {{ form_widget(bookForm.title, {'attr' : {'placeholder' : 'Titre du livre' , 'class' : 'form-control'} } ) }}
+            </div>
+            <div class="mb-3">
+            {{ form_label(bookForm.year, 'Date de publication : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+            {{ form_widget(bookForm.year, {'attr' : {'placeholder' : 'Date de publication', 'class' : 'form-control'} } ) }}
+            </div>
+            <div class="mb-3">
+            {{ form_label(bookForm.description, 'Description : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+            {{ form_widget(bookForm.description, {'attr' : {'placeholder' : 'Description ', 'class' : 'form-control'} } ) }}
+            </div>
+            <div class="mb-3">
+            {{ form_label(bookForm.writer, 'Auteur : ', {'label_attr' : { 'class' : 'form-label' } } ) }}
+            {{ form_widget(bookForm.writer, {'attr' : {'placeholder' : 'Auteur ', 'class' : 'form-control'} } ) }}
+            </div>
+            <div class="mb-3">
+            {{ form_widget(bookForm.enregistrer, { 'attr' : {'class' : 'btn btn-outline-secondary'} } ) }}
+            </div>
+            {{ form_end(bookForm) }}
+        </form>    
+    </main        
+    {% block javascripts %}{% endblock %}      
+
+{% endblock %}
